@@ -19,7 +19,7 @@ include(GNUInstallDirs)
 # Required Packages
 
 # Qt5 libs
-find_package(Qt5 "5.12.0" COMPONENTS VirtualKeyboard CONFIG REQUIRED COMPONENTS)
+find_package(Qt5 "5.12.0" COMPONENTS Core CONFIG REQUIRED COMPONENTS)
 
 # Compiler Flags
 
@@ -60,7 +60,7 @@ target_include_directories(ZVKeyboard
 # linking
 target_link_libraries(ZVKeyboard
     PUBLIC
-    Qt5::VirtualKeyboard
+    Qt5::Core
 )
 
 # install library
