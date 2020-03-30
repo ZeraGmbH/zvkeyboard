@@ -1,13 +1,16 @@
 cmake_minimum_required(VERSION 3.1)
 
 project(zvkeyboard LANGUAGES CXX C)
-set(PROJECT_VERSION "0.0.1")
+set(ZVKEYBOARD_VERSION_MAJOR "0")
+set(ZVKEYBOARD_VERSION_MINOR "0")
+set(ZVKEYBOARD_VERSION_PATCH "1")
+
+set(PROJECT_VERSION "${ZVKEYBOARD_VERSION_MAJOR}.${ZVKEYBOARD_VERSION_MINOR}.${ZVKEYBOARD_VERSION_PATCH}")
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 
 # Options
 
@@ -41,6 +44,8 @@ file(GLOB LIB_RESOURCES
 add_library(ZVKeyboard SHARED
     ${LIB_SOURCES} ${LIB_HEADERS} ${LIB_RESOURCES}
 )
+set_target_properties(ZVKeyboard PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(ZVKeyboard PROPERTIES SOVERSION ${ZVKEYBOARD_VERSION_MAJOR})
 
 # announce global headers - build perspective
 include_directories(
