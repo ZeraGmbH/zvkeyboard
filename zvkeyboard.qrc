@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>zvkeyboard/DarkKey.qml</file>
-        <file>zvkeyboard/ZVKApplicationWindow.qml</file>
         <file>zvkeyboard/layouts/de_DE/numbers.fallback</file>
         <file>zvkeyboard/layouts/de_DE/main.qml</file>
         <file>zvkeyboard/layouts/de_DE/symbols.fallback</file>
