@@ -50,7 +50,7 @@ set_target_properties(ZVKeyboard PROPERTIES SOVERSION ${ZVKEYBOARD_VERSION_MAJOR
 # announce global headers - build perspective
 include_directories(
     # public header
-    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     # generated export header
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
 )
