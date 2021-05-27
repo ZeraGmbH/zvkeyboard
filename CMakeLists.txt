@@ -8,7 +8,6 @@ set(ZVKEYBOARD_VERSION_PATCH "1")
 set(PROJECT_VERSION "${ZVKEYBOARD_VERSION_MAJOR}.${ZVKEYBOARD_VERSION_MINOR}.${ZVKEYBOARD_VERSION_PATCH}")
 
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -23,6 +22,7 @@ include(GNUInstallDirs)
 
 # Qt5 libs
 find_package(Qt5 "5.12.0" COMPONENTS Core CONFIG REQUIRED COMPONENTS)
+find_package(Qt5QuickCompiler CONFIG REQUIRED)
 
 # Compiler Flags
 
@@ -36,9 +36,11 @@ file(GLOB_RECURSE LIB_SOURCES
     *.cpp
 )
 
-file(GLOB LIB_RESOURCES
-    *.qrc
-)
+if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    qt5_add_resources(LIB_RESOURCES ${CMAKE_CURRENT_LIST_DIR}/zvkeyboard.qrc)
+else()
+    qtquick_compiler_add_resources(LIB_RESOURCES ${CMAKE_CURRENT_LIST_DIR}/zvkeyboard.qrc)
+endif()
 
 # our library
 add_library(ZVKeyboard SHARED
